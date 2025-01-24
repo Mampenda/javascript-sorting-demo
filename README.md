@@ -4,6 +4,16 @@ This is a simple HTML file with JavaScript that runs directly in a web browser.
 
 It demonstrates algorithms like Bubble Sort, Quick Sort, and/or a simple pathfinding algorithm with a visual element (e.g., sorting numbers in an array and displaying them dynamically).
 
+## File Purposes:
+
+The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`-file.
+
+`index.html`: Contains the structure of the page, including the button and container where bars will be displayed.
+
+`styles.css`: Provides the styles for the page, such as the layout and the appearance of the bars.
+
+`script.js`: Contains the logic for generating random bars and performing the bubble sort algorithm.
+
 ## How to Run the Code
 
 ### Locally
@@ -36,14 +46,18 @@ It demonstrates algorithms like Bubble Sort, Quick Sort, and/or a simple pathfin
 
 ## Explanation of the Code
 
+### HTML-file
+
 ```html
+<!--Declare the document as HTML5 -->
 <!DOCTYPE html>
+<!--Specifie that the primary language of the document is English. -->
 <html lang="en">
   <head>
     <!-- Character encoding for the document -->
     <meta charset="UTF-8" />
 
-    <!-- Makes sure the page is responsive on mobile devices -->
+    <!-- Make sure the page is responsive on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Title displayed in the browser tab -->
@@ -67,6 +81,8 @@ It demonstrates algorithms like Bubble Sort, Quick Sort, and/or a simple pathfin
   </body>
 </html>
 ```
+
+### css-file
 
 ```css
 /* Style for the whole page */
@@ -105,6 +121,8 @@ body {
   background-color: steelblue;
 }
 ```
+
+### JavaScript-file
 
 ```js
 // Waits until the DOM content is fully loaded before running the function
@@ -184,3 +202,17 @@ function swap(bar1, bar2) {
   });
 }
 ```
+
+#### What each part of the JavaScript does:
+
+`generateBars()`:
+This function creates 10 random bars with heights between 0 and 100 pixels. It places them in the container (#bars) on the webpage.
+
+`bubbleSort()`:
+This function implements the Bubble Sort algorithm. It repeatedly compares and swaps adjacent bars (if needed) until the bars are in the correct order. The function is asynchronous to allow for the visual updates (swapping bars) to be seen step-by-step.
+
+`swap()`:
+This function swaps the heights of two bars. It uses a setTimeout to add a 200ms delay, making the swapping action visible to the user.
+
+`document.addEventListener("DOMContentLoaded", ...)`:
+This ensures that the bars are generated as soon as the HTML content is fully loaded and the DOM is ready for manipulation.
