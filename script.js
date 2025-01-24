@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     generateBars();
 });
 
+// Function to generate random bars
 function generateBars() {
     const barsContainer = document.getElementById("bars");
     barsContainer.innerHTML = "";
@@ -15,6 +16,7 @@ function generateBars() {
     });
 }
 
+// Function to perform the bubble sort algorithm on the bars
 async function bubbleSort() {
     let bars = document.querySelectorAll(".bar");
     let len = bars.length;
@@ -31,6 +33,7 @@ async function bubbleSort() {
     }
 }
 
+// Function to swap two bars (divs)
 function swap(bar1, bar2) {
     return new Promise((resolve) => {
         setTimeout(() => {
