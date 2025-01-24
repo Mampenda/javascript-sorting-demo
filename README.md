@@ -18,7 +18,9 @@ It demonstrates algorithms like Bubble Sort, Quick Sort, and/or a simple pathfin
 3. Right-click `index.html` and select _"Open with Live Server"_.
 4. The browser will open, and the page will auto-refresh when changes are made.
 
-#### Bubble Sort
+## Explanation of the Algorithms
+
+### Bubble Sort
 
 1. Start at the _beginning_ of the list.
 2. Compare the _first two elements_ :

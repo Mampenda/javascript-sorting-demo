@@ -1,0 +1,18 @@
+/* This is styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#bars {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Aligns bars at the bottom */
+    height: 200px; /* Set a fixed height for the container */
+}
+
+.bar {
+    width: 20px;
+    margin: 2px;
+    background-color: steelblue;
+}
