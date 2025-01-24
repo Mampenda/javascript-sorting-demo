@@ -4,13 +4,15 @@ body {
     text-align: center;
 }
 
+/* Style for the container that holds the bars */
 #bars {
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Aligns bars at the bottom */
-    height: 120px; /* Set a fixed height for the container */
+    align-items: flex-end;
+    height: 120px;
 }
 
+/* Style for individual bars */
 .bar {
     width: 20px;
     margin: 2px;
