@@ -4,7 +4,21 @@ This is a simple HTML file with JavaScript that runs directly in a web browser.
 
 It demonstrates algorithms like Bubble Sort, Quick Sort, and/or a simple pathfinding algorithm with a visual element (e.g., sorting numbers in an array and displaying them dynamically).
 
-## Bubble Sort
+## How to Run the Code
+
+### Locally
+
+1. Open the project folder.
+2. Double-click `index.html` to open it in (default) web browser.
+
+### With Live Server in VSCode
+
+1. Install Live Server extension in VS Code.
+2. Open the project folder.
+3. Right-click `index.html` and select *"Open with Live Server"*.
+4. The browser will open, and the page will auto-refresh when changes are made.
+
+#### Bubble Sort
 
 1. Start at the _beginning_ of the list.
 2. Compare the _first two elements_ :
