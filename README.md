@@ -11,11 +11,11 @@ It demonstrates algorithms like Bubble Sort, Quick Sort, and/or a simple pathfin
 1. Open the project folder.
 2. Double-click `index.html` to open it in (default) web browser.
 
-### With Live Server in VSCode
+### With Live Server in VSCode (rec.)
 
 1. Install Live Server extension in VS Code.
 2. Open the project folder.
-3. Right-click `index.html` and select *"Open with Live Server"*.
+3. Right-click `index.html` and select _"Open with Live Server"_.
 4. The browser will open, and the page will auto-refresh when changes are made.
 
 #### Bubble Sort
