@@ -1,3 +1,4 @@
+// Waits until the page is fully loaded before generating bars
 document.addEventListener("DOMContentLoaded", () => {
     generateBars();
 });
@@ -5,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // Function to generate random bars
 function generateBars() {
     const barsContainer = document.getElementById("bars");
-    barsContainer.innerHTML = "";
-    let numbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100));
+    barsContainer.innerHTML = ""; // Clears existing bars
+    let numbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100)); // Generates 10 random numbers
 
     numbers.forEach((num) => {
         let bar = document.createElement("div");
@@ -31,6 +32,36 @@ async function bubbleSort() {
             }
         }
     }
+}
+
+// Function to perform the quick sort algorithm on the bars
+async function quickSort(low = 0, high = null) {
+    let bars = document.querySelectorAll(".bar");
+
+    if (high === null) high = bars.length - 1; // Default high value on first call
+    if (low < high) {
+        let pivotIndex = await partition(bars, low, high);
+        await quickSort(low, pivotIndex - 1);  // Recursively sort left partition
+        await quickSort(pivotIndex + 1, high); // Recursively sort right partition
+    }
+}
+
+// Partition function for Quick Sort
+async function partition(bars, low, high) {
+    let pivot = parseInt(bars[high].style.height); // Choose last element as pivot
+    let i = low - 1; // Index of smaller element
+
+    for (let j = low; j < high; j++) {
+        let heightJ = parseInt(bars[j].style.height);
+
+        if (heightJ < pivot) {
+            i++;
+            await swap(bars[i], bars[j]); // Swap bars visually
+        }
+    }
+
+    await swap(bars[i + 1], bars[high]); // Move pivot to correct position
+    return i + 1; // Return the pivot index
 }
 
 // Function to swap two bars (divs)

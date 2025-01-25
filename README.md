@@ -46,6 +46,16 @@ The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`
 6. With each pass, the _largest unsorted element "bubbles up" to its correct position_.
 7. Continue until no swaps are needed.
 
+### Quick Sort
+
+Quick Sort is a divide-and-conquer algorithm that selects a pivot and partitions elements into two halves:
+
+- Left side: Elements smaller than the pivot.
+- Right side: Elements greater than the pivot.
+
+It recursively sorts both halves.
+The visualization delay (setTimeout) ensures users can see the sorting in action.
+
 ## Explanation of the Code
 
 ### HTML-file
