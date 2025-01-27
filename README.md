@@ -58,16 +58,16 @@ The visualization delay (setTimeout) ensures users can see the sorting in action
 
 #### Key-Differences
 
-| Feature                                       | Bubble Sort                                    | Quick Sort                                             |
-| --------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------ |
-| Approach                                      | Repeatedly swaps ajacent elements until sorter | Uses a pivot to divide and recursively sort            |
-| Best Case Time Complexity                     | O(n) (Already Sorted)                          | O(n log n)                                             |
-| Average Case Time Complexity                  | O(n²) (Slow)                                   | O(n log n) (Fast)                                      |
-| Worst Case Time Complexity                    | O(n²) (Very slow on large lists)               | O(n²) (If poorly chosen pivot, but usually O(n log n)) |
-| Sorting Method                                | In-place, swaps adjacent elements              | In-place, uses partitioning                            |
-| Stability (Preserves order of equal elements) | Stable                                         | Not always stable                                      |
-| Practical Use                                 | Simple but inefficient for large datasets      | Very efficient for large datasets                      |
-| Recursion                                     | No recursion, simple loops                     | Uses recursion                                         |
+| Feature                                       | Bubble Sort                                     | Quick Sort                                             |
+| --------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------ |
+| Approach                                      | Repeatedly swaps adjacent elements until sorter | Uses a pivot to divide and recursively sort            |
+| Best Case Time Complexity                     | O(n) (Already Sorted)                           | O(n log n)                                             |
+| Average Case Time Complexity                  | O(n²) (Slow)                                    | O(n log n) (Fast)                                      |
+| Worst Case Time Complexity                    | O(n²) (Very slow on large lists)                | O(n²) (If poorly chosen pivot, but usually O(n log n)) |
+| Sorting Method                                | In-place, swaps adjacent elements               | In-place, uses partitioning                            |
+| Stability (Preserves order of equal elements) | Stable                                          | Not always stable                                      |
+| Practical Use                                 | Simple but inefficient for large datasets       | Very efficient for large datasets                      |
+| Recursion                                     | No recursion, simple loops                      | Uses recursion                                         |
 
 ## Explanation of the Code
 
