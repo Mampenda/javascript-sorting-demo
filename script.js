@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function generateBars() {
     const barsContainer = document.getElementById("bars");
     barsContainer.innerHTML = ""; // Clears existing bars
-    let numbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100)); // Generates 10 random numbers
+
+    // Generates an array of 10 random heights between 10 and 100 pixels
+    let numbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100) + 10);
 
     numbers.forEach((num) => {
         let bar = document.createElement("div");
@@ -17,8 +19,22 @@ function generateBars() {
     });
 }
 
+// Function to disable sorting buttons during sorting
+function disableButtons() {
+    document.querySelector("button[onclick='bubbleSort()']").disabled = true;
+    document.querySelector("button[onclick='quickSort()']").disabled = true;
+}
+
+// Function to enable sorting buttons
+function enableButtons() {
+    document.querySelector("button[onclick='bubbleSort()']").disabled = false;
+    document.querySelector("button[onclick='quickSort()']").disabled = false;
+}
+
 // Function to perform the bubble sort algorithm on the bars
 async function bubbleSort() {
+    disableButtons(); 
+
     let bars = document.querySelectorAll(".bar");
     let len = bars.length;
 
@@ -32,36 +48,43 @@ async function bubbleSort() {
             }
         }
     }
+    enableButtons(); 
 }
 
 // Function to perform the quick sort algorithm on the bars
 async function quickSort(low = 0, high = null) {
     let bars = document.querySelectorAll(".bar");
 
-    if (high === null) high = bars.length - 1; // Default high value on first call
+    if (high === null) high = bars.length - 1;
+
     if (low < high) {
         let pivotIndex = await partition(bars, low, high);
-        await quickSort(low, pivotIndex - 1);  // Recursively sort left partition
-        await quickSort(pivotIndex + 1, high); // Recursively sort right partition
+        await quickSort(low, pivotIndex - 1);
+        await quickSort(pivotIndex + 1, high);
+    }
+
+    // Enable buttons after sorting is completely done (only when recursion ends)
+    if (low === 0 && high === bars.length - 1) {
+        enableButtons();
     }
 }
 
 // Partition function for Quick Sort
 async function partition(bars, low, high) {
-    let pivot = parseInt(bars[high].style.height); // Choose last element as pivot
-    let i = low - 1; // Index of smaller element
+    let pivot = parseInt(bars[high].style.height);
+    let i = low - 1;
 
     for (let j = low; j < high; j++) {
         let heightJ = parseInt(bars[j].style.height);
 
         if (heightJ < pivot) {
             i++;
-            await swap(bars[i], bars[j]); // Swap bars visually
+            await swap(bars[i], bars[j]);
         }
     }
 
-    await swap(bars[i + 1], bars[high]); // Move pivot to correct position
-    return i + 1; // Return the pivot index
+    await swap(bars[i + 1], bars[high]);
+    return i + 1;
 }
 
 // Function to swap two bars (divs)

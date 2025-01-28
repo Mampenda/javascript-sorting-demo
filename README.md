@@ -76,8 +76,10 @@ The visualization delay (setTimeout) ensures users can see the sorting in action
 ```html
 <!--Declare the document as HTML5 -->
 <!DOCTYPE html>
+
 <!--Specifie that the primary language of the document is English. -->
 <html lang="en">
+  <!-- Head section of an HTML document -->
   <head>
     <!-- Character encoding for the document -->
     <meta charset="UTF-8" />
@@ -94,14 +96,20 @@ The visualization delay (setTimeout) ensures users can see the sorting in action
     <!-- Include the JavaScript file (defer ensures it runs after the HTML is loaded) -->
     <script defer src="script.js"></script>
   </head>
+
+  <!-- Body section of an HTML document -->
   <body>
     <!-- Heading displayed on the webpage -->
-    <h1>Bubble Sort Visualization</h1>
+    <h1>Sorting Algorithms Visualization</h1>
 
-    <!-- Button to trigger the sorting function -->
-    <button onclick="bubbleSort()">Sort</button>
+    <!-- Button to generate a new set of random bars -->
+    <button onclick="generateBars()">Generate Bars</button>
 
-    <!-- Container where the sorting bars (divs) will be displayed -->
+    <!-- Buttons to start sorting using different algorithms -->
+    <button onclick="bubbleSort()">Bubble Sort</button>
+    <button onclick="quickSort()">Quick Sort</button>
+
+    <!-- Container that will hold the generated bars -->
     <div id="bars"></div>
   </body>
 </html>
@@ -110,120 +118,127 @@ The visualization delay (setTimeout) ensures users can see the sorting in action
 ### css-file
 
 ```css
-/* Style for the whole page */
+/* Basic styles for the page */
 body {
-  /* Sets the font family to Arial (sans-serif if Arial is unavailable) */
-  font-family: Arial, sans-serif;
-
-  /* Centers the text on the page */
-  text-align: center;
+  font-family: Arial, sans-serif; /* Sets font for the text */
+  text-align: center; /* Centers text and elements */
 }
 
 /* Style for the container that holds the bars */
 #bars {
-  /* Uses flexbox to arrange items in a row (horizontal) */
-  display: flex;
-
-  /* Aligns the bars to the bottom of the container */
-  align-items: flex-end;
-
-  /* Centers the bars horizontally */
-  justify-content: center;
-
-  /* Sets the height of the container that holds the bars */
-  height: 120px;
+  display: flex; /* Makes bars appear in a row */
+  justify-content: center; /* Centers bars horizontally */
+  align-items: flex-end; /* Aligns bars at the bottom */
+  height: 120px; /* Sets the height of the container */
 }
 
 /* Style for individual bars */
 .bar {
-  /* Sets the width of each bar */
-  width: 20px;
-
-  /* Adds space between each bar */
-  margin: 2px;
-
-  /* Sets the color of the bars */
-  background-color: steelblue;
+  width: 20px; /* Sets a fixed width for each bar */
+  margin: 2px; /* Adds spacing between bars */
+  background-color: steelblue; /* Sets the color of bars */
 }
 ```
 
 ### JavaScript-file
 
 ```js
-// Waits until the DOM (Document Object Model) content is fully loaded before running the function
+// Waits until the page is fully loaded before generating bars
 document.addEventListener("DOMContentLoaded", () => {
-  // Generates random bars when the page is loaded
-  generateBars();
+  generateBars(); // Calls function to create the bars when the page loads
 });
 
 // Function to generate random bars
 function generateBars() {
-  // Get the container where the bars will be placed
-  const barsContainer = document.getElementById("bars");
+  const barsContainer = document.getElementById("bars"); // Gets the container div where bars will be displayed
+  barsContainer.innerHTML = ""; // Clears any existing bars to refresh the visualization
 
-  // Clears any existing bars from the container (if any)
-  barsContainer.innerHTML = "";
-
-  // Creates an array of 10 random numbers (representing bar heights)
-  let numbers = Array.from({ length: 10 }, () =>
-    Math.floor(Math.random() * 100)
+  // Generates an array of 10 random heights between 10 and 100 pixels
+  let numbers = Array.from(
+    { length: 10 },
+    () => Math.floor(Math.random() * 100) + 10
   );
 
-  // Loop through each number in the array and create a div for each bar
+  // Creates bars dynamically based on the generated numbers
   numbers.forEach((num) => {
-    // Create a div element to represent a bar
-    let bar = document.createElement("div");
-
-    // Adds the 'bar' class to the div to apply CSS styling
-    bar.classList.add("bar");
-
-    // Sets the height of the bar based on the random number
-    bar.style.height = `${num}px`;
-
-    // Appends the bar div to the bars container in the HTML
-    barsContainer.appendChild(bar);
+    let bar = document.createElement("div"); // Creates a new div element for each bar
+    bar.classList.add("bar"); // Adds the "bar" class for styling
+    bar.style.height = `${num}px`; // Sets the height of the bar based on the number
+    barsContainer.appendChild(bar); // Appends the bar to the container
   });
 }
 
-// Function to perform the bubble sort algorithm on the bars
+// Function to perform the Bubble Sort algorithm on the bars
 async function bubbleSort() {
-  // Get all the bars (div elements) currently on the page
-  let bars = document.querySelectorAll(".bar");
+  disableButtons(); // Disable buttons to prevent multiple clicks during sorting
 
-  // Get the number of bars
-  let len = bars.length;
+  let bars = document.querySelectorAll(".bar"); // Select all bars
+  let len = bars.length; // Number of bars
 
-  // Loop through each element to perform sorting
+  // Outer loop iterates through the array
   for (let i = 0; i < len - 1; i++) {
-    // Inner loop to compare adjacent bars
+    // Inner loop iterates through unsorted part of the array
     for (let j = 0; j < len - 1 - i; j++) {
-      // Get the height of two adjacent bars
-      let height1 = parseInt(bars[j].style.height);
-      let height2 = parseInt(bars[j + 1].style.height);
+      let height1 = parseInt(bars[j].style.height); // Gets the height of the first bar
+      let height2 = parseInt(bars[j + 1].style.height); // Gets the height of the next bar
 
-      // If the first bar is taller than the second one, swap them
+      // If the current bar is taller than the next one, swap them
       if (height1 > height2) {
-        await swap(bars[j], bars[j + 1]);
+        await swap(bars[j], bars[j + 1]); // Calls the swap function (with a delay for visualization)
       }
     }
   }
+  enableButtons(); // Re-enable buttons after sorting is complete
 }
 
-// Function to swap two bars (divs)
+// Function to perform the Quick Sort algorithm on the bars
+async function quickSort(low = 0, high = null) {
+  let bars = document.querySelectorAll(".bar"); // Selects all bars dynamically
+
+  if (high === null) high = bars.length - 1; // Sets high index on the first function call
+
+  // Only proceed if there are elements to sort
+  if (low < high) {
+    let pivotIndex = await partition(bars, low, high); // Calls partition function to find pivot position
+    await quickSort(low, pivotIndex - 1); // Recursively sorts the left part of the pivot
+    await quickSort(pivotIndex + 1, high); // Recursively sorts the right part of the pivot
+  }
+
+  // Ensure buttons are only enabled once all recursion is finished
+  if (low === 0 && high === bars.length - 1) {
+    enableButtons();
+  }
+}
+
+// Partition function for Quick Sort
+async function partition(bars, low, high) {
+  let pivot = parseInt(bars[high].style.height); // Uses the last element as the pivot
+  let i = low - 1; // Pointer for elements smaller than the pivot
+
+  // Loop through elements to compare them with the pivot
+  for (let j = low; j < high; j++) {
+    let heightJ = parseInt(bars[j].style.height); // Gets the height of the current bar
+
+    // If current bar is smaller than pivot, move it to the left
+    if (heightJ < pivot) {
+      i++; // Move the boundary for smaller elements
+      await swap(bars[i], bars[j]); // Swaps the smaller element to the correct position
+    }
+  }
+
+  await swap(bars[i + 1], bars[high]); // Places the pivot in its correct position
+  return i + 1; // Returns the final position of the pivot
+}
+
+// Function to swap two bars (divs) with animation delay
 function swap(bar1, bar2) {
   return new Promise((resolve) => {
-    // Delay the swap by 200ms so we can visualize the change
     setTimeout(() => {
-      // Temporarily store the height of the first bar
-      let temp = bar1.style.height;
-
-      // Swap the heights of the two bars
-      bar1.style.height = bar2.style.height;
-      bar2.style.height = temp;
-
-      // Resolve the promise to indicate that the swap is complete
-      resolve();
-    }, 200);
+      let temp = bar1.style.height; // Temporarily stores the height of the first bar
+      bar1.style.height = bar2.style.height; // Assigns the second bar's height to the first
+      bar2.style.height = temp; // Assigns the stored height to the second bar
+      resolve(); // Resolves the promise after the swap
+    }, 200); // Delay of 200ms to visualize sorting
   });
 }
 ```
@@ -235,6 +250,9 @@ This function creates 10 random bars with heights between 0 and 100 pixels. It p
 
 `bubbleSort()`:
 This function implements the Bubble Sort algorithm. It repeatedly compares and swaps adjacent bars (if needed) until the bars are in the correct order. The function is asynchronous to allow for the visual updates (swapping bars) to be seen step-by-step.
+
+`quickSort()`
+This function implements the Quick Sort algorithm. It selects a "pivot" element (usually the last), partitions the bars by moving all those smaller than the pivot to the left of it and all those larger to the right. Then, it recursively sorts the left and right partitions until all elements are sorted.
 
 `swap()`:
 This function swaps the heights of two bars. It uses a setTimeout to add a 200ms delay, making the swapping action visible to the user.
