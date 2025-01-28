@@ -50,11 +50,22 @@ The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`
 
 Quick Sort is a divide-and-conquer algorithm that selects a pivot and partitions elements into two halves:
 
-- Left side: Elements smaller than the pivot.
-- Right side: Elements greater than the pivot.
+1. Pick a "pivot" element from the list (usually the last element, but it could be any element).
 
-It recursively sorts both halves.
-The visualization delay (setTimeout) ensures users can see the sorting in action.
+2. Partition the list around the pivot:
+
+   Rearrange the list so that all elements smaller than the pivot are on the left.
+   All elements greater than the pivot are on the right.
+   The pivot is now in its correct position, where it will stay once the list is fully sorted.
+
+3. Recursively apply the same steps to the left and right sublists created by the pivot:
+
+   The left sublist contains elements smaller than the pivot.
+   The right sublist contains elements larger than the pivot.
+
+4. Continue until each sublist contains only one element or is empty, at which point the sublists are considered sorted.
+
+5. Merge the sublists—the result is a sorted list.
 
 #### Key-Differences
 
