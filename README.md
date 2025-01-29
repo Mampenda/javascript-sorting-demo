@@ -30,9 +30,19 @@ The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`
 3. Right-click `index.html` and select _"Open with Live Server"_.
 4. The browser will open, and the page will auto-refresh when changes are made.
 
+## Pseudocode
+
+### What is Pseudocode?
+
+Pseudocode is a way of writing steps in plain language to describe how a program should work. It isn’t a real programming language but helps us plan out logic before coding.
+
+#### Examples of Pseudocode
+
 ## Explanation of the Algorithms
 
 ### Bubble Sort
+
+#### Plaintext
 
 1. Start at the _beginning_ of the list.
 2. Compare the _first two elements_ :
@@ -46,7 +56,23 @@ The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`
 6. With each pass, the _largest unsorted element "bubbles up" to its correct position_.
 7. Continue until no swaps are needed.
 
+#### Psuedocode
+
+```
+BubbleSort(array)
+    n = length of array
+    repeat
+        swapped = false
+        for i = 0 to n-2 do
+            if array[i] > array[i + 1] then
+                swap array[i] with array[i + 1]
+                swapped = true
+        until swapped is false
+```
+
 ### Quick Sort
+
+#### Planitext
 
 Quick Sort is a divide-and-conquer algorithm that selects a pivot and partitions elements into two halves:
 
@@ -66,6 +92,26 @@ Quick Sort is a divide-and-conquer algorithm that selects a pivot and partitions
 4. Continue until each sublist contains only one element or is empty, at which point the sublists are considered sorted.
 
 5. Merge the sublists—the result is a sorted list.
+
+#### Pseudocode
+
+```
+QuickSort(array, low, high)
+    if low < high then
+        pivotIndex = Partition(array, low, high)
+        QuickSort(array, low, pivotIndex - 1)  // Sort elements before the pivot
+        QuickSort(array, pivotIndex + 1, high) // Sort elements after the pivot
+
+Partition(array, low, high)
+    pivot = array[high]  // Choose the pivot element (can be any element)
+    i = low - 1          // Index of the smaller element
+    for j = low to high - 1 do
+        if array[j] <= pivot then
+            i = i + 1
+            swap array[i] with array[j]
+    swap array[i + 1] with array[high]  // Place pivot in the correct position
+    return i + 1  // Return the pivot's final index
+```
 
 #### Key-Differences
 
