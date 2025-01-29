@@ -2,9 +2,7 @@
 
 This is a simple project which runs directly in a web browser.
 
-It demonstrates the Bubble Sort algorithm with a visual element.
-
-It demonstrates algorithms like Bubble Sort, Quick Sort, and/or a simple pathfinding algorithm with a visual element (e.g., sorting numbers in an array and displaying them dynamically).
+It demonstrates the algorithms Bubble Sort and Quick Sort with a visual element (e.g., sorting numbers in an array and displaying them dynamically).
 
 ## How to Run the Code
 
