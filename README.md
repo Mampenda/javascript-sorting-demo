@@ -33,7 +33,8 @@ The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`
 ## The Document Object Model
 
 The DOM Document Object Model is a programming interface that represents a web page as a structured tree of objects. It allows programs (like JavaScript) to interact with and modify the content, structure, and style of a webpage dynamically.
-Key Points about the DOM:
+
+### Key Points about the DOM:
 
 - Tree Structure: The webpage (HTML document) is structured like a tree, where each HTML element (like <div>, <p>, <h1>, etc.) is a "node."
 - JavaScript Interaction: JavaScript can access and manipulate the DOM to update text, change colors, add/remove elements, and respond to user actions.
