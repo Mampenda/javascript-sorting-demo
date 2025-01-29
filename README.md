@@ -63,7 +63,7 @@ MakeToast(bread, ingredients)
 ```
 
 ```
-contact = "Ola Nordman"
+contact = "Ola Nordmann"
 phoneNumber = "12 34 56 78"
 
 MakeCall(contact, phoneNumber)
