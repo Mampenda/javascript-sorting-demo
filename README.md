@@ -59,7 +59,7 @@ contact = "Ola Nordman"
 phoneNumber = "12 34 56 78"
 
 MakeCall(contact, phoneNumber)
-    Unlock the phone // Ensure the phone is unlocked
+    Unlock the phone
 
     Open the phone dialer
 
