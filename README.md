@@ -34,7 +34,7 @@ The DOM Document Object Model is a programming interface that represents a web p
 
 ### Key Points about the DOM:
 
-- Tree Structure: The webpage (HTML document) is structured like a tree, where each HTML element (like <div>, <p>, <h1>, etc.) is a "node."
+- Tree Structure: The webpage (HTML document) is structured like a tree, where each HTML element (like `<div>`, `<p>`, `<h1>`, etc.) is a "node."
 - JavaScript Interaction: JavaScript can access and manipulate the DOM to update text, change colors, add/remove elements, and respond to user actions.
 - Live Representation: The DOM updates in real-time—changes made by JavaScript immediately affect what the user sees on the page.
 
