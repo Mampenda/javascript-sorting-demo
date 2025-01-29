@@ -6,16 +6,6 @@ It demonstrates the Bubble Sort algorithm with a visual element.
 
 It demonstrates algorithms like Bubble Sort, Quick Sort, and/or a simple pathfinding algorithm with a visual element (e.g., sorting numbers in an array and displaying them dynamically).
 
-## File Purposes:
-
-The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`-file.
-
-`index.html`: Contains the structure of the page, including the button and container where bars will be displayed.
-
-`styles.css`: Provides the styles for the page, such as the layout and the appearance of the bars.
-
-`script.js`: Contains the logic for generating random bars and performing the bubble sort algorithm.
-
 ## How to Run the Code
 
 ### Locally
@@ -29,6 +19,25 @@ The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`
 2. Open the project folder.
 3. Right-click `index.html` and select _"Open with Live Server"_.
 4. The browser will open, and the page will auto-refresh when changes are made.
+
+## File Purposes:
+
+The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`-file.
+
+`index.html`: Contains the structure of the page, including the button and container where bars will be displayed.
+
+`styles.css`: Provides the styles for the page, such as the layout and the appearance of the bars.
+
+`script.js`: Contains the logic for generating random bars and performing the bubble sort algorithm.
+
+## The Document Object Model
+
+The DOM Document Object Model is a programming interface that represents a web page as a structured tree of objects. It allows programs (like JavaScript) to interact with and modify the content, structure, and style of a webpage dynamically.
+Key Points about the DOM:
+
+- Tree Structure: The webpage (HTML document) is structured like a tree, where each HTML element (like <div>, <p>, <h1>, etc.) is a "node."
+- JavaScript Interaction: JavaScript can access and manipulate the DOM to update text, change colors, add/remove elements, and respond to user actions.
+- Live Representation: The DOM updates in real-time—changes made by JavaScript immediately affect what the user sees on the page.
 
 ## Pseudocode
 
