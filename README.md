@@ -40,7 +40,7 @@ Pseudocode is a way of writing steps in plain language to describe how a program
 
 ```
 bread = "wholemeal bread"
-ingredients = ["butter", "cheese", "pesto"]
+ingredients = ["butter", "cheese", "pesto", "ketchup"]
 
 MakeToast(bread, ingredients)
   Slice the bread
