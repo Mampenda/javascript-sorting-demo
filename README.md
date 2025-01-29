@@ -36,7 +36,51 @@ The code contains three types of files: an `HTML`-, a `css`-, and a `JavaScript`
 
 Pseudocode is a way of writing steps in plain language to describe how a program should work. It isn’t a real programming language but helps us plan out logic before coding.
 
-#### Examples of Pseudocode
+#### Examples of Pseudocode (can you guess what these do?)
+
+```
+bread = "wholemeal bread"
+ingredients = ["butter", "cheese", "pesto"]
+
+MakeToast(bread, ingredients)
+  Slice the bread
+
+  Assemble the sandwich
+
+  Toast the sandwich
+
+  Add ketchup
+
+  Return finished grilled cheese sanwich
+```
+
+```
+contact = "Ola Nordman"
+phoneNumber = "12 34 56 78"
+
+MakeCall(contact, phoneNumber)
+    Unlock the phone // Ensure the phone is unlocked
+
+    Open the phone dialer
+
+    Dial the phone number
+
+    If the call is connected then
+      Talk to the contact
+    else
+      Leave a voicemal
+
+    Return "Call completed"
+```
+
+```
+number = 7  // The number we want to check
+
+if number divided by 2 has no remainder then
+    print "The number is even"
+else
+    print "The number is odd"
+```
 
 ## Explanation of the Algorithms
 
