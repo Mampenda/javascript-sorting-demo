@@ -59,7 +59,7 @@ MakeToast(bread, ingredients)
 
   Add ketchup
 
-  Return finished grilled cheese sanwich
+  Return finished grilled cheese sandwich
 ```
 
 ```
